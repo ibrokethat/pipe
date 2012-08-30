@@ -1,17 +1,17 @@
-# ibt-iter
+# ibt-pipe
 
-Iteration: loosely based on pythons iter tools
+pipelines
 
 ## Install
 
-       npm install ibt-iter
+       npm install ibt-pipe
 
 
-##  What is ibt-iter?
+##  What is ibt-pipe?
 
 
 
-##  Using ibt-iter
+##  Using ibt-pipe
 
 
 ## License
