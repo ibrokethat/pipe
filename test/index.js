@@ -1,6 +1,6 @@
 var assert   = require("assert"),
     sinon    = require("sinon"),
-    pipes    = require("../index"),
+    pipes    = require("../ibt-pipe"),
     async    = require("ibt-async"),
     pipe     = pipes.pipe,
     step     = pipes.step,

@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git@github.com:ibrokethat/ibt-pipe"
   },
-  "main": "index",
+  "main": "ibt-pipe",
   "scripts": {
     "prepublish" : "npm prune",
     "test": "mocha -u bdd"
