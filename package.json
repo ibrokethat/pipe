@@ -1,5 +1,5 @@
 {
-  "name": "ibt-pipe",
+  "name": "pipe",
   "description": "ibrokethat pipelines",
   "version": "0.0.1",
   "author": "si@ibrokethat.com",
@@ -7,10 +7,10 @@
     { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
   ],
   "dependencies": {
-    "ibt-async": "git+ssh://git@github.com:ibrokethat/ibt-async",
-    "ibt-func": "git+ssh://git@github.com:ibrokethat/ibt-func",
-    "ibt-is": "git+ssh://git@github.com:ibrokethat/ibt-is",
-    "ibt-iter": "git+ssh://git@github.com:ibrokethat/ibt-iter"
+    "async": "git+ssh://git@github.com:ibrokethat/async",
+    "func": "git+ssh://git@github.com:ibrokethat/func",
+    "is": "git+ssh://git@github.com:ibrokethat/is",
+    "iter": "git+ssh://git@github.com:ibrokethat/iter"
   },
   "devDependencies": {
     "mocha": "1.2.x",
@@ -19,9 +19,9 @@
   "keywords": ["ibrokethat", "pipelines"],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ibrokethat/ibt-pipe"
+    "url": "git@github.com:ibrokethat/pipe"
   },
-  "main": "ibt-pipe",
+  "main": "pipe",
   "scripts": {
     "prepublish" : "npm prune",
     "test": "mocha -u bdd"

@@ -2,10 +2,10 @@
   @module  async sequence pipeline based upon promises
 */
 
-var async   = require("ibt-async"),
-    func    = require("ibt-func"),
-    is      = require("ibt-is"),
-    iter    = require("ibt-iter"),
+var async   = require("async"),
+    func    = require("func"),
+    is      = require("is"),
+    iter    = require("iter"),
     Promise = async.Promise,
     when    = async.when,
     bind    = func.bind,

@@ -1,17 +1,17 @@
-# ibt-pipe
+# pipe
 
 pipelines
 
 ## Install
 
-       npm install ibt-pipe
+       npm install pipe
 
 
-##  What is ibt-pipe?
+##  What is pipe?
 
 
 
-##  Using ibt-pipe
+##  Using pipe
 
 
 ## License
