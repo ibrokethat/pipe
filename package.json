@@ -21,7 +21,10 @@
     "type": "git",
     "url": "git@github.com:ibrokethat/pipe"
   },
-  "main": "pipe",
+  "ibrokethat": {
+    "buildClient": true
+  },
+  "main": "pipe.js",
   "scripts": {
     "prepublish" : "npm prune",
     "test": "mocha -u bdd"
