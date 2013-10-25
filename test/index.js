@@ -3,15 +3,13 @@ var assert   = require("assert"),
     pipes    = require("../pipe"),
     async    = require("async"),
     pipe     = pipes.pipe,
-    step     = pipes.step,
-    sequence = pipes.pipeline,
-    Promise  = async.Promise,
+    promise  = async.promise,
     fakes;
 
 
 function makeResolver() {
   return sinon.spy(function (v) {
-    var p = Promise.spawn();
+    var p = promise();
     setTimeout(function(){
       p.resolve(v);
     }, 10);
@@ -21,7 +19,7 @@ function makeResolver() {
 
 function makeRejector() {
   return sinon.spy(function (v) {
-    var p = Promise.spawn();
+    var p = promise();
     setTimeout(function(){
       p.reject(v);
     }, 10);

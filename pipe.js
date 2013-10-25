@@ -2,13 +2,13 @@
   @module  async sequence pipeline based upon promises
 */
 
-var async   = require("async");
-var func    = require("func");
-var is      = require("is");
-var iter    = require("iter");
-var Promise = async.Promise;
-var when    = async.when;
-var bind    = func.bind;
+var async = require('async');
+var func = require('func');
+var is = require('is');
+var iter = require('iter');
+var promise = async.promise;
+var when = async.when;
+var bind = func.bind;
 var partial = func.partial;
 var forEach = iter.forEach;
 var enforce = is.enforce;
@@ -56,7 +56,7 @@ function pipeline(step, unit, functions) {
 
   return function (value) {
 
-    var output = Promise.spawn();
+    var output = promise();
     var funcs = [].concat(functions);
 
     step(unit, output, funcs, funcs.shift()(value));
