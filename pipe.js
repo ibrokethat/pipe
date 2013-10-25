@@ -28,7 +28,12 @@ function step(unit, output, functions, input) {
     function (value) {
 
       if (functions.length) {
-        step(unit, output, functions, functions.shift()(value));
+        try {
+          step(unit, output, functions, functions.shift()(value));
+        }
+        catch (e) {
+          output.reject(e);
+        }
       }
       else {
         output.resolve(value);

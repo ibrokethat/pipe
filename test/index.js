@@ -105,7 +105,7 @@ describe("test pipe module: ", function() {
     });
 
 
-    it("should reject it's output if any of the functions reject", function(done) {
+    it("should reject it's output if any of the deferred functions reject", function(done) {
 
       var p, logUserIn;
 
@@ -113,6 +113,38 @@ describe("test pipe module: ", function() {
             makeResolver(),
             makeResolver(),
             makeRejector(),
+            makeResolver(),
+            makeResolver()
+          ];
+
+      logUserIn = pipe(p);
+
+      logUserIn("simon").then(
+        function() {},
+        function(value) {
+
+          assert.equal("simon", value);
+          assert.equal(1, p[0].callCount);
+          assert.equal(1, p[1].callCount);
+          assert.equal(1, p[2].callCount);
+          assert.equal(0, p[3].callCount);
+          assert.equal(0, p[4].callCount);
+
+          done();
+        }
+      );
+
+    });
+
+
+    it("should reject it's output if any of the non deferred functions throws an error", function(done) {
+
+      var p, logUserIn;
+
+      p = [
+            makeResolver(),
+            makeResolver(),
+            sinon.stub().throws("simon"),
             makeResolver(),
             makeResolver()
           ];
