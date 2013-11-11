@@ -1,16 +1,16 @@
 {
   "name": "pipe",
   "description": "ibrokethat pipelines",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "author": "si@ibrokethat.com",
   "contributors": [
     { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
   ],
   "dependencies": {
     "async": "https://api.github.com/repos/ibrokethat/async/tarball#v0.0.4",
-    "func": "https://api.github.com/repos/ibrokethat/func/tarball",
-    "is": "https://api.github.com/repos/ibrokethat/is/tarball",
-    "iter": "https://api.github.com/repos/ibrokethat/iter/tarball"
+    "func": "https://api.github.com/repos/ibrokethat/func/tarball#v0.0.4",
+    "is": "https://api.github.com/repos/ibrokethat/is/tarball#v0.0.4",
+    "iter": "https://api.github.com/repos/ibrokethat/iter/tarball#v0.0.4"
   },
   "devDependencies": {
     "mocha": "1.2.x",
