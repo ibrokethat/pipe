@@ -32,7 +32,8 @@ function step(unit, output, functions, input) {
           step(unit, output, functions, functions.shift()(value));
         }
         catch (e) {
-          output.reject(e);
+          value.error = e;
+          output.reject(value);
         }
       }
       else {
@@ -64,7 +65,12 @@ function pipeline(step, unit, functions) {
     var output = promise();
     var funcs = [].concat(functions);
 
-    step(unit, output, funcs, funcs.shift()(value));
+    try {
+      step(unit, output, funcs, funcs.shift()(value));
+    }
+    catch (e) {
+      output.reject(e);
+    }
 
     return output;
 

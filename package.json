@@ -7,10 +7,10 @@
     { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
   ],
   "dependencies": {
-    "async": "git+ssh://git@github.com:ibrokethat/async",
-    "func": "git+ssh://git@github.com:ibrokethat/func",
-    "is": "git+ssh://git@github.com:ibrokethat/is",
-    "iter": "git+ssh://git@github.com:ibrokethat/iter"
+    "async": "https://api.github.com/repos/ibrokethat/async/tarball#v0.0.4",
+    "func": "https://api.github.com/repos/ibrokethat/func/tarball",
+    "is": "https://api.github.com/repos/ibrokethat/is/tarball",
+    "iter": "https://api.github.com/repos/ibrokethat/iter/tarball"
   },
   "devDependencies": {
     "mocha": "1.2.x",
