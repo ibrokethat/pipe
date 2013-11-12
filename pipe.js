@@ -32,8 +32,7 @@ function step(unit, output, functions, input) {
           step(unit, output, functions, functions.shift()(value));
         }
         catch (e) {
-          value.error = e;
-          output.reject(value);
+          output.reject(e);
         }
       }
       else {
