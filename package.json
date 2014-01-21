@@ -1,16 +1,16 @@
 {
   "name": "super-pipe",
   "description": "ibrokethat pipelines",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "si@ibrokethat.com",
   "contributors": [
     { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
   ],
   "dependencies": {
-    "async": "0.0.x",
-    "func": "0.0.x",
-    "is": "0.0.x",
-    "iter": "0.0.x"
+    "super-async": "0.0.x",
+    "super-func": "0.0.x",
+    "super-is": "0.0.x",
+    "super-iter": "0.0.x"
   },
   "devDependencies": {
     "mocha": "1.2.x",
