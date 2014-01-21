@@ -1,5 +1,5 @@
 {
-  "name": "pipe",
+  "name": "super-pipe",
   "description": "ibrokethat pipelines",
   "version": "0.0.5",
   "author": "si@ibrokethat.com",
@@ -7,10 +7,10 @@
     { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
   ],
   "dependencies": {
-    "async": "https://api.github.com/repos/ibrokethat/async/tarball#v0.0.4",
-    "func": "https://api.github.com/repos/ibrokethat/func/tarball#v0.0.4",
-    "is": "https://api.github.com/repos/ibrokethat/is/tarball#v0.0.4",
-    "iter": "https://api.github.com/repos/ibrokethat/iter/tarball#v0.0.4"
+    "async": "0.0.x",
+    "func": "0.0.x",
+    "is": "0.0.x",
+    "iter": "0.0.x"
   },
   "devDependencies": {
     "mocha": "1.2.x",
@@ -20,9 +20,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:ibrokethat/pipe"
-  },
-  "ibrokethat": {
-    "buildClient": true
   },
   "main": "pipe.js",
   "scripts": {
