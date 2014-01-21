@@ -2,10 +2,10 @@
   @module  async sequence pipeline based upon promises
 */
 
-var async = require('async');
-var func = require('func');
-var is = require('is');
-var iter = require('iter');
+var async = require('super-async');
+var func = require('super-func');
+var is = require('super-is');
+var iter = require('super-iter');
 var promise = async.promise;
 var when = async.when;
 var bind = func.bind;
