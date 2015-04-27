@@ -57,7 +57,7 @@ function genAsyncReject (v) {
 
 
 
-describe("test iter module: ", () => {
+describe("test pipe module: ", () => {
 
   beforeEach(()  =>  {
 
@@ -72,7 +72,7 @@ describe("test iter module: ", () => {
   });
 
 
-  it('should call each function in the sync pipeline', (done) => {
+  it('should call each function in a sync pipeline', (done) => {
 
     let result = false;
 
@@ -109,7 +109,7 @@ describe("test iter module: ", () => {
   });
 
 
-  it('should call each function in the async pipeline', (done) => {
+  it('should call each function in an async pipeline', (done) => {
 
     let result = false;
 
@@ -146,7 +146,7 @@ describe("test iter module: ", () => {
   });
 
 
-  it('should call each function in the sync/async pipeline', (done) => {
+  it('should call each function in a sync/async pipeline', (done) => {
 
     let result = false;
 

@@ -12,7 +12,14 @@ export default function pipe (functions, data) {
 
       while (fns.length) {
 
-        let r = fns.shift()(data);
+        let fn = fns.shift();
+
+        if (typeof fn !== 'function') {
+
+          throw new TypeError(`factory expects ${fn} to be a function`);
+        }
+
+        let r = fn(data);
 
         if (typeof r.then === 'function') {
 
