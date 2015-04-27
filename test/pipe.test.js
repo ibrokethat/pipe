@@ -2,7 +2,7 @@
 
 import assert from 'assert';
 import sinon from 'sinon';
-import  underTest from '../src/pipe';
+import underTest from '../src/pipe';
 
 import {expect} from 'chai';
 
@@ -12,23 +12,25 @@ let ctx;
 
 function gen (v) {
 
-  return function (ctx) {
+  return (ctx) => {
     ctx.data[v] = v;
     return ctx;
   }
 }
 
+
 function genThrow (v) {
 
-  return function (ctx) {
+  return (ctx) => {
     ctx.errors = v;
     throw ctx;
   }
 }
 
+
 function genAsync (v) {
 
-  return function (ctx) {
+  return (ctx) => {
 
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -39,9 +41,10 @@ function genAsync (v) {
   }
 }
 
+
 function genAsyncReject (v) {
 
-  return function (ctx) {
+  return (ctx) => {
 
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -51,7 +54,6 @@ function genAsyncReject (v) {
     });
   }
 }
-
 
 
 
@@ -70,7 +72,81 @@ describe("test iter module: ", () => {
   });
 
 
-  it('should call each function in the pipeline', (done) => {
+  it('should call each function in the sync pipeline', (done) => {
+
+    let result = false;
+
+    let pipeline = [
+      gen('d'),
+      gen('a'),
+      gen('t'),
+      gen('e')
+    ];
+
+
+    let t = () => {
+
+      expect(result).to.deep.equal({
+        req: 'req',
+        res: 'res',
+        errors: null,
+        data: {
+          d: 'd',
+          a: 'a',
+          t: 't',
+          e: 'e'
+        }
+      });
+
+      done();
+
+    }
+
+    let p = underTest(pipeline, ctx)
+      .then((r) => {result = r; t(); })
+      .catch((e) => {result = e; t();});
+
+  });
+
+
+  it('should call each function in the async pipeline', (done) => {
+
+    let result = false;
+
+    let pipeline = [
+      genAsync('d'),
+      genAsync('a'),
+      genAsync('t'),
+      genAsync('e')
+    ];
+
+
+    let t = () => {
+
+      expect(result).to.deep.equal({
+        req: 'req',
+        res: 'res',
+        errors: null,
+        data: {
+          d: 'd',
+          a: 'a',
+          t: 't',
+          e: 'e'
+        }
+      });
+
+      done();
+
+    }
+
+    let p = underTest(pipeline, ctx)
+      .then((r) => {result = r; t(); })
+      .catch((e) => {result = e; t();});
+
+  });
+
+
+  it('should call each function in the sync/async pipeline', (done) => {
 
     let result = false;
 
@@ -107,7 +183,7 @@ describe("test iter module: ", () => {
   });
 
 
-  it('should throw when a function rejects', (done) => {
+  it('should throw when an async function rejects', (done) => {
 
     let result = false;
 
@@ -142,7 +218,8 @@ describe("test iter module: ", () => {
   });
 
 
-  it('should throw when a function throws', (done) => {
+
+  it('should throw when a sync function throws', (done) => {
 
     let result = false;
 
@@ -171,6 +248,34 @@ describe("test iter module: ", () => {
 
     let p = underTest(pipeline, ctx)
       .then((r) => {result = r; t(); })
+      .catch((e) => {result = e; t();});
+
+  });
+
+
+  it('should pass each functions output to the next ones input', (done) => {
+
+    let result = false;
+
+    let pipeline = [
+      sinon.spy((x) => x*2),
+      sinon.spy((x) => x*2),
+      sinon.spy((x) => x*2),
+      sinon.spy((x) => x*2)
+    ];
+
+
+    let t = () => {
+      expect(pipeline[0].calledWith(1)).to.be.true;
+      expect(pipeline[1].calledWith(2)).to.be.true;
+      expect(pipeline[2].calledWith(4)).to.be.true;
+      expect(pipeline[3].calledWith(8)).to.be.true;
+      done();
+
+    }
+
+    let p = underTest(pipeline, 1)
+      .then((r) => {result = r; t();})
       .catch((e) => {result = e; t();});
 
   });
